@@ -1,6 +1,13 @@
 <h1><%= @single_article.title %></h1>
 
 <p>
+	Tags:
+	<% @single_article.tags.each do |tag| %>
+		<%= link_to tag.name, tag_path(tag) %>
+	<% end %>
+</p>
+
+<p>
 	<%= @single_article.body %>
 </p>
 
