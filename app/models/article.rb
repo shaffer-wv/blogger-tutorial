@@ -2,7 +2,8 @@ class Article < ActiveRecord::Base
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
-  attr_accessible :title, :body, :tag_list
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+  attr_accessible :title, :body, :tag_list, :image
 
   def tag_list
   	tags.join(", ")
